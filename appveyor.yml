@@ -9,7 +9,7 @@
 # from example:
 # https://github.com/Phonations/Joker/blob/master/appveyor.yml
 # https://github.com/unicorn-engine/autobuild/blob/master/.appveyor.yml
-      
+
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
@@ -89,15 +89,15 @@ environment:
 #  - cmd: echo This is batch again
 #  - cmd: set MY_VAR=12345
 install:
-  # We cannot get OBS submodule as it use illegal folder name for windows.
+  # We cannot get OBS submodule as it uses illegal folder name for windows.
   #- git submodule update --init
   # Configuring MSys2
   - set PATH=C:\msys64\usr\bin;%PATH%
   - set PATH=C:\msys64\mingw32\bin;%PATH%
   - >
     pacman --noconfirm -Sy
-    mingw-w64-i686-qt5 mingw-w64-i686-miniupnpc mingw-w64-i686-rapidjson
-    mingw-w64-i686-sqlcipher mingw-w64-i686-xapian-core mingw-w64-i686-cmark
+    mingw-w64-i686-qt5-base mingw-w64-i686-miniupnpc mingw-w64-i686-rapidjson
+    mingw-w64-x86_64-sqlcipher mingw-w64-i686-xapian-core mingw-w64-i686-cmark
   #- set PATH=C:\msys64\mingw32\qt5-static\bin\;%PATH%
 
   # Configuring Qt
