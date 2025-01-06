@@ -93,7 +93,7 @@ install:
   # We cannot get OBS submodule as it uses illegal folder name for windows.
   #- git submodule update --init
   # Configuring MSys2
-  - >-
+  - >
 #    # cmd: set PATH=C:\msys64\usr\bin;%PATH%
 #    # cmd: set PATH=C:\msys64\mingw32\bin;%PATH%
     # Update MSYS2
@@ -103,14 +103,14 @@ install:
 
     # Then run your code
     $env:CHERE_INVOKING = 'yes'  # Preserve the current working directory
-    $env:MSYSTEM = 'MINGW32'  # Start a 64 bit Mingw environment
+    $env:MSYSTEM = 'MINGW32'  # Start a 32 bit Mingw environment
     C:\msys64\usr\bin\bash -lc "./ci-build.sh"
 
     pacman --noconfirm -Sy
-    mingw-w64-i686-qt5-base mingw-w64-i686-qt5-multimedia
-    mingw-w64-i686-miniupnpc mingw-w64-i686-rapidjson
+    mingw-w64-i686-qt5-base mingw-w64-i686-qt5-multimedia mingw-w64-i686-qt5-winextras
+    mingw-w64-i686-miniupnpc mingw-w64-i686-rapidjson mingw-w64-i686-qt5-tools
     mingw-w64-x86_64-sqlcipher mingw-w64-i686-xapian-core mingw-w64-i686-cmark
-    mingw-w64-i686-bzip3
+    mingw-w64-i686-bzip23
   #- set PATH=C:\msys64\mingw32\qt5-static\bin\;%PATH%
 
   # Configuring Qt
