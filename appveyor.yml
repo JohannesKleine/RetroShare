@@ -93,9 +93,9 @@ install:
   # We cannot get OBS submodule as it uses illegal folder name for windows.
   #- git submodule update --init
   # Configuring MSys2
-  - cmd: >-
-#    # cmd: set PATH=C:\msys64\usr\bin;%PATH%
-#    # cmd: set PATH=C:\msys64\mingw32\bin;%PATH%
+  - >
+    # cmd: set PATH=C:\msys64\usr\bin;%PATH%
+    # cmd: set PATH=C:\msys64\mingw32\bin;%PATH%
     # Update MSYS2
     C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"
     C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"
