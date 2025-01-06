@@ -106,11 +106,11 @@ install:
     mingw-w64-i686-qt5-base mingw-w64-i686-qt5-multimedia mingw-w64-i686-qt5-winextras
     mingw-w64-i686-miniupnpc mingw-w64-i686-rapidjson mingw-w64-i686-qt5-tools
     mingw-w64-x86_64-sqlcipher mingw-w64-i686-xapian-core mingw-w64-i686-cmark
-    mingw-w64-i686-bzip23
+    mingw-w64-i686-bzip3
   #- set PATH=C:\msys64\mingw32\qt5-static\bin\;%PATH%
 
   # Configuring Qt
-#  - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw491_32\bin;%PATH%
+  - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw491_32\bin;%PATH%
 
   # Hack for new MSys2
   - copy C:\msys64\mingw32\i686-w64-mingw32\bin\ar.exe C:\msys64\mingw32\bin\i686-w64-mingw32-ar.exe
