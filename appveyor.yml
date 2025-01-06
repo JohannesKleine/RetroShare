@@ -97,9 +97,8 @@ install:
 #    # cmd: set PATH=C:\msys64\usr\bin;%PATH%
 #    # cmd: set PATH=C:\msys64\mingw32\bin;%PATH%
     # Update MSYS2
-    C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"  # Core update (in case any core packages are outdated)
-    C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"  # Normal update
-    # Then run your code
+    C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"
+    C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"
     #$env:CHERE_INVOKING = 'yes'  # Preserve the current working directory
     #$env:MSYSTEM = 'MINGW32'  # Start a 32 bit Mingw environment
     #C:\msys64\usr\bin\bash -lc "./ci-build.sh"
