@@ -24,8 +24,8 @@ image: Visual Studio 2019
 # branches to build
 branches:
   # whitelist
-  #only:
-  #  - master
+  only:
+    - appveyor
 
   # blacklist
   except:
@@ -65,6 +65,7 @@ clone_folder: C:\projects\RetroShare
 clone_depth: 2000                    # clone entire repository history if not defined
 
 environment:
+  APPVEYOR_RDP_PASSWORD: '*Bmor34nC+(sp44'
   global:
 ## Qt: https://www.appveyor.com/docs/installed-software#qt
 #    QTDIR: C:\Qt\5.10.1\mingw53_32
@@ -92,9 +93,19 @@ install:
   # We cannot get OBS submodule as it uses illegal folder name for windows.
   #- git submodule update --init
   # Configuring MSys2
-  - set PATH=C:\msys64\usr\bin;%PATH%
-  - set PATH=C:\msys64\mingw32\bin;%PATH%
-  - >
+  - >-
+#    # cmd: set PATH=C:\msys64\usr\bin;%PATH%
+#    # cmd: set PATH=C:\msys64\mingw32\bin;%PATH%
+    # Update MSYS2
+    C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"  # Core update (in case any core packages are outdated)
+
+    C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"  # Normal update
+
+    # Then run your code
+    $env:CHERE_INVOKING = 'yes'  # Preserve the current working directory
+    $env:MSYSTEM = 'MINGW32'  # Start a 64 bit Mingw environment
+    C:\msys64\usr\bin\bash -lc "./ci-build.sh"
+
     pacman --noconfirm -Sy
     mingw-w64-i686-qt5-base mingw-w64-i686-qt5-multimedia
     mingw-w64-i686-miniupnpc mingw-w64-i686-rapidjson
@@ -146,7 +157,7 @@ configuration: Release
 # scripts to run before build
 before_build:
   - cd C:\projects\RetroShare
-  - git submodule update --init
+  - git submodule update --init --remote
   - cd C:\projects\
   - mkdir RetroShare-build
   - cd RetroShare-build
@@ -157,7 +168,7 @@ before_package:
 
 # to run your custom scripts instead of automatic MSBuild
 build_script:
-  - env
+  # - env
   - qmake ../RetroShare -spec win32-g++ "CONFIG+=debug"
   - mingw32-make -j3
 
