@@ -71,6 +71,7 @@ environment:
 #    QTDIR: C:\Qt\5.10.1\mingw53_32
 #    MSYS2_ARCH: i686
 #    TARGET: i686_32-pc-msys
+    MSYSTEM: mingw32
     MINGW_PREFIX: C:\msys64\mingw32
     RS_DEPLOY: RetroShare_deploy
 
@@ -91,7 +92,12 @@ environment:
 #  - cmd: set MY_VAR=12345
 install:
   - set
-  - C:\msys64\mingw32.exe
+  # - C:\msys64\mingw32.exe
+  - set PATH=C:\msys64\usr\bin;%PATH%
+  - set QTDIR=C:\Qt\5.15.2\mingw81_32
+  - set PATH=%PATH%;%QTDIR%\bin;C:\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin
+  - cd C:\msys64
+  - find .
   - set
   - cd C:\projects\RetroShare
   - git -c submodule."build_scripts/OBS".update=none submodule update --init --remote
