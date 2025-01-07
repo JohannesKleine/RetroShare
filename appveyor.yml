@@ -115,7 +115,7 @@ configuration: Release
 # scripts to run before build
 before_build:
   - cd C:\projects\RetroShare
-  - git submodule update --init --remote
+  - git -c submodule."build_scripts/OBS".update=none submodule update --init --remote
   - cd C:\projects\RetroShare\build_scripts\Windows-msys2
   - build.bat
 
