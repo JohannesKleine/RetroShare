@@ -69,8 +69,8 @@ environment:
   global:
 ## Qt: https://www.appveyor.com/docs/installed-software#qt
 #    QTDIR: C:\Qt\5.10.1\mingw53_32
-    MSYS2_ARCH: i686
-    TARGET: i686_32-pc-msys
+#    MSYS2_ARCH: i686
+#    TARGET: i686_32-pc-msys
     MINGW_PREFIX: C:\msys64\mingw32
     RS_DEPLOY: RetroShare_deploy
 
@@ -90,6 +90,12 @@ environment:
 #  - cmd: echo This is batch again
 #  - cmd: set MY_VAR=12345
 install:
+  - set
+  - C:\msys64\mingw32.exe
+  - set
+  - cd C:\projects\RetroShare
+  - git -c submodule."build_scripts/OBS".update=none submodule update --init --remote
+  - cd C:\projects\RetroShare\build_scripts\Windows-msys2
 
 
 #---------------------------------#
@@ -116,8 +122,8 @@ configuration: Release
 before_build:
   - cd C:\projects\RetroShare
   - git -c submodule."build_scripts/OBS".update=none submodule update --init --remote
-  - cd C:\projects\RetroShare\build_scripts\Windows-msys2
-  - build.bat
+#  - cd C:\projects\RetroShare\build_scripts\Windows-msys2
+#  - build.bat
 
   #- find C:\ > filelist.txt
 
