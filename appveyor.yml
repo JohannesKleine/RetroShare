@@ -96,8 +96,8 @@ install:
   - set PATH=C:\msys64\usr\bin;%PATH%
   - set QTDIR=C:\Qt\5.15.2\mingw81_32
   - set PATH=%PATH%;%QTDIR%\bin;C:\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin
-  - cd C:\msys64
-  - find .
+  #- cd C:\msys64
+  #- find .
   - set
   - cd C:\projects\RetroShare
   - git -c submodule."build_scripts/OBS".update=none submodule update --init --remote
