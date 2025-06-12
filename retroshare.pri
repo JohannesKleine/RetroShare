@@ -855,6 +855,13 @@ macx-* {
 		QMAKE_CXXFLAGS += -Wno-nullability-completeness
 		QMAKE_CFLAGS += -Wno-nullability-completeness
 	}
+	rs_macos15.5 {
+		message(***retroshare.pri: Set Target and SDK to MacOS 15.5 )
+		QMAKE_MACOSX_DEPLOYMENT_TARGET=15.5
+		QMAKE_MAC_SDK = macosx15.5
+		QMAKE_CXXFLAGS += -Wno-nullability-completeness
+		QMAKE_CFLAGS += -Wno-nullability-completeness
+	}
 
 
 
