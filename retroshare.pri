@@ -132,7 +132,7 @@ use_dht_stunner_ext_ip:CONFIG -= no_use_dht_stunner_ext_ip
 
 # To select your MacOsX version append the following assignation to qmake
 # command line "CONFIG+=rs_macos10.11" where 10.11 depends your version
-macx:CONFIG *= rs_macos11.1
+macx:CONFIG *= rs_macos15.5
 rs_macos10.8:CONFIG -= rs_macos10.11
 rs_macos10.9:CONFIG -= rs_macos10.11
 rs_macos10.10:CONFIG -= rs_macos10.11
@@ -855,6 +855,20 @@ macx-* {
 		QMAKE_CXXFLAGS += -Wno-nullability-completeness
 		QMAKE_CFLAGS += -Wno-nullability-completeness
 	}
+	rs_macos14.5 {
+		message(***retroshare.pri: Set Target and SDK to MacOS 14.5 )
+		QMAKE_MACOSX_DEPLOYMENT_TARGET=14.5
+		QMAKE_MAC_SDK = macosx14.5
+		QMAKE_CXXFLAGS += -Wno-nullability-completeness
+		QMAKE_CFLAGS += -Wno-nullability-completeness
+	}
+	rs_macos15.2 {
+		message(***retroshare.pri: Set Target and SDK to MacOS 15.2 )
+		QMAKE_MACOSX_DEPLOYMENT_TARGET=15.2
+		QMAKE_MAC_SDK = macosx15.2
+		QMAKE_CXXFLAGS += -Wno-nullability-completeness
+		QMAKE_CFLAGS += -Wno-nullability-completeness
+	}
 	rs_macos15.5 {
 		message(***retroshare.pri: Set Target and SDK to MacOS 15.5 )
 		QMAKE_MACOSX_DEPLOYMENT_TARGET=15.5
@@ -870,13 +884,13 @@ macx-* {
 	INCLUDEPATH += "/usr/local/include"
 	RS_UPNP_LIB = miniupnpc
 	QT += macextras
-	INCLUDEPATH += "/usr/local/opt/openssl/include"
-	QMAKE_LIBDIR += "/usr/local/opt/openssl/lib"
-	QMAKE_LIBDIR += "/usr/local/opt/sqlcipher/lib"
-	QMAKE_LIBDIR += "/usr/local/opt/miniupnpc/lib"
-	INCLUDEPATH += "/usr/local/opt/libxml2/include/libxml2"
-	INCLUDEPATH += "/usr/local/opt/libxslt/include"
-	QMAKE_LIBDIR += "/usr/local/opt/libxslt/lib"
+	INCLUDEPATH += "/usr/local/Homebrew/opt/openssl/include"
+	QMAKE_LIBDIR += "/usr/local/Homebrew/opt/openssl/lib"
+	QMAKE_LIBDIR += "/usr/local/Homebrew/opt/sqlcipher/lib"
+	QMAKE_LIBDIR += "/usr/local/Homebrew/opt/miniupnpc/lib"
+	INCLUDEPATH += "/usr/local/Homebrew/opt/libxml2/include/libxml2"
+	INCLUDEPATH += "/usr/local/Homebrew/opt/libxslt/include"
+	QMAKE_LIBDIR += "/usr/local/Homebrew/opt/libxslt/lib"
 }
 
 # If not yet defined attempt UPnP library autodetection should works at least
