@@ -25,11 +25,11 @@ CONFIG += c++14
 
 TEMPLATE = subdirs
 
-rs_jsonapi:isEmpty(JSONAPI_GENERATOR_EXE) {
-    SUBDIRS += jsonapi-generator
-    jsonapi-generator.file = jsonapi-generator/src/jsonapi-generator.pro
-    libretroshare.depends += jsonapi-generator
-}
+#rs_jsonapi:isEmpty(JSONAPI_GENERATOR_EXE) {
+#    SUBDIRS += jsonapi-generator
+#    jsonapi-generator.file = jsonapi-generator/src/jsonapi-generator.pro
+#    libretroshare.depends += jsonapi-generator
+#}
 
 SUBDIRS += libbitdht
 libbitdht.file = libbitdht/src/libbitdht.pro

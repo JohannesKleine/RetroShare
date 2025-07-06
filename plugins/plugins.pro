@@ -19,5 +19,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-                VOIP \
-		FeedReader
+		FeedReader \
+		PaintChat \
+		RetroChess
+		#VOIP \

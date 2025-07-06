@@ -4,6 +4,8 @@
 TARGET = jsonapi-generator
 
 CONFIG += qt
+#QMAKE_LFLAGS+=-v
+QMAKE_CXXFLAGS+=-stdlib=libc++
 
 QT *= core xml
 QT -= gui
