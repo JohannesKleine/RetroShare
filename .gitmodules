@@ -41,3 +41,15 @@
 	path = supportlibs/librnp
 	url = https://github.com/rnpgp/rnp.git
 	branch = main
+[submodule "plugins/RetroChess"]
+	path = plugins/RetroChess
+	url = https://github.com/RetroShare/RetroChess.git
+[submodule "plugins/FriendMap"]
+	path = plugins/FriendMap
+	url = git@github.com:JohannesKleine/FriendsMap.git
+[submodule "plugins/SyncFriends"]
+	path = plugins/SyncFriends
+	url = git@github.com:JohannesKleine/SyncFriends.git
+[submodule "plugins/PaintChat"]
+	path = plugins/PaintChat
+	url = https://github.com/RetroShare/PaintChat.git
