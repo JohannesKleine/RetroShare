@@ -25,4 +25,8 @@ SUBDIRS += \
 }
 SUBDIRS += \
 		FeedReader \
-    VOIP
+		FriendMap \
+		PaintChat \
+		RetroChess \
+		SyncFriends \
+		VOIP \
