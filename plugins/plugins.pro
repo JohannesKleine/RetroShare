@@ -28,5 +28,10 @@ SUBDIRS += \
 		FriendMap \
 		PaintChat \
 		RetroChess \
+<<<<<<< HEAD
 		SyncFriends \
 		VOIP \
+=======
+#		SyncFriends \
+#		VOIP \
+>>>>>>> eae64734f (plugins.pro)
