@@ -28,5 +28,5 @@ SUBDIRS += \
 		FriendMap \
 		PaintChat \
 		RetroChess \
-		SyncFriends \
+#		SyncFriends \
 #		VOIP \
