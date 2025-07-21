@@ -1,4 +1,4 @@
-name: MSYS2 Build
+name: msys2
 on:
   push:
     branches:
