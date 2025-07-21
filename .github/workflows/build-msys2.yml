@@ -63,9 +63,9 @@ jobs:
           echo '########################################################'
           ls -la
           pwd
-          cd /D/a/RetroShare
-          pwd
-          ls -la
+          # cd /D/a/RetroShare
+          # pwd
+          # ls -la
           echo '########################################################'
           qmake RetroShare.pro -spec win32-g++
           mingw32-make -j3
