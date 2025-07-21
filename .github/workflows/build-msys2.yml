@@ -63,6 +63,7 @@ jobs:
           echo '########################################################'
           ls -la
           pwd
+          git submodule update --init --remote libbitdht/ libretroshare/ retroshare-webui/
           # cd /D/a/RetroShare
           # pwd
           # ls -la
