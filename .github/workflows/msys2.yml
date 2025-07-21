@@ -49,4 +49,5 @@ jobs:
             mingw-w64-x86_64-asio
       - name: CI-Build
         run: |
-          qmake
+          echo 'Running in MSYS2!'
+          ./ci-build.sh
