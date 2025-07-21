@@ -1,0 +1,56 @@
+name: SEACAS MSYS2 Build
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+concurrency:  
+  group: ${{ github.workflow}}-${{ github.head_ref }}  
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - name: Setup MSYS2
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: msys2/setup-msys2@40677d36a502eb2cf0fb808cc9dec31bf6152638 # v2.28.0
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            base-devel
+            git
+            wget
+            p7zip
+            gcc
+            perl
+            ruby
+            doxygen
+            cmake
+            mingw-w64-x86_64-toolchain
+            mingw-w64-x86_64-miniupnpc
+            mingw-w64-x86_64-libxslt
+            mingw-w64-x86_64-xapian-core
+            mingw-w64-x86_64-sqlcipher
+            mingw-w64-x86_64-qt5-base
+            mingw-w64-x86_64-qt5-multimedia
+            mingw-w64-x86_64-ccmake
+            mingw-w64-x86_64-rapidjson
+            mingw-w64-x86_64-json-c
+            mingw-w64-x86_64-libbotan
+            mingw-w64-x86_64-asio
+      - name: CI-Build
+        run: |
+            qmake
+            mingw32-make
