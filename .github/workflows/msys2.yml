@@ -49,5 +49,6 @@ jobs:
             mingw-w64-x86_64-asio
       - name: CI-Build
         run: |
-          echo 'Running in MSYS2!'
-          ./ci-build.sh
+          env
+          qmake ../RetroShare -spec win32-g++
+          mingw32-make -j3

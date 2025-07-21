@@ -1,3 +1,4 @@
+---
 name: build-msys2
 
 on:
@@ -27,61 +28,61 @@ jobs:
     outputs:
       workflow_disabled: ${{ steps.check-disabled.outputs.disabled }}
     steps:
-    - name: Check if Workflow is disabled
-      id: check-disabled
-      shell: bash
-      run: |
-        if [ "${{ env.DISABLE_WORKFLOW }}" == "true" ]; then
-          echo "disabled=true" >> $GITHUB_ENV
-          echo "::set-output name=disabled::true"
-        else
-          echo "::set-output name=disabled::false"
-        fi
+      - name: Check if Workflow is disabled
+        id: check-disabled
+        shell: bash
+        run: |
+          if [ "${{ env.DISABLE_WORKFLOW }}" == "true" ]; then
+            echo "disabled=true" >> $GITHUB_ENV
+            echo "::set-output name=disabled::true"
+          else
+            echo "::set-output name=disabled::false"
+          fi
   build-msys2:
     if: needs.pre-check.outputs.workflow_disabled != 'true'
     needs: pre-check
     strategy:
       matrix:
-       include:
-        - { sys: mingw64, env: x86_64 }
-    name: ${{ matrix.sys }}
+        include:
+          - { sys: mingw64, env: x86_64 }
+        name: ${{ matrix.sys }}
     runs-on: windows-latest
     defaults:
       run:
         shell: msys2 {0}
-    steps:
-      - name: Setup MSYS2
-        uses: msys2/setup-msys2@v2.27.0
-        with:
-          update: true
-          release : false
-          cache: false
-          msystem: ${{matrix.sys}}
-          install: mingw-w64-${{matrix.env}}-openssl
-            base-devel
-            git
-            wget
-            p7zip
-            gcc
-            perl
-            ruby
-            doxygen
-            cmake
-            mingw-w64-x86_64-toolchain
-            mingw-w64-x86_64-miniupnpc
-            mingw-w64-x86_64-libxslt
-            mingw-w64-x86_64-xapian-core
-            mingw-w64-x86_64-sqlcipher
-            mingw-w64-x86_64-qt5-base
-            mingw-w64-x86_64-qt5-multimedia
-            mingw-w64-x86_64-ccmake
-            mingw-w64-x86_64-rapidjson
-            mingw-w64-x86_64-json-c
-            mingw-w64-x86_64-libbotan
-            mingw-w64-x86_64-asio
-        - name: CI-Build
-        run: |
-            qmake
-            mingw32-make
-
-
+##  name: Setup MSYS2
+  steps:
+    name: foo
+    uses: msys2/setup-msys2@v2.27.0
+    with:
+      update: true
+      release : false
+      cache: false
+      msystem: ${{matrix.sys}}
+      install: >-
+        mingw-w64-${{matrix.env}}-openssl
+        base-devel
+        git
+        wget
+        p7zip
+        gcc
+        perl
+        ruby
+        doxygen
+        cmake
+        mingw-w64-x86_64-toolchain
+        mingw-w64-x86_64-miniupnpc
+        mingw-w64-x86_64-libxslt
+        mingw-w64-x86_64-xapian-core
+        mingw-w64-x86_64-sqlcipher
+        mingw-w64-x86_64-qt5-base
+        mingw-w64-x86_64-qt5-multimedia
+        mingw-w64-x86_64-ccmake
+        mingw-w64-x86_64-rapidjson
+        mingw-w64-x86_64-json-c
+        mingw-w64-x86_64-libbotan
+        mingw-w64-x86_64-asio
+#  name: CI-Build
+    run: |
+      qmake
+      mingw32-make
