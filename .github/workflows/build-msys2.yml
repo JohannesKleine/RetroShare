@@ -57,5 +57,8 @@ jobs:
       - name: CI-Build
         run: |
           env
-          qmake ../RetroShare -spec win32-g++
+          echo '########################################################'
+          ls -la
+          echo '########################################################'
+          qmake RetroShare.pro -spec win32-g++
           mingw32-make -j3
