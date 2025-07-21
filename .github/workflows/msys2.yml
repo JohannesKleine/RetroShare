@@ -1,4 +1,4 @@
-name: SEACAS MSYS2 Build
+name: MSYS2 Build
 on:
   push:
     branches:
