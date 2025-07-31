@@ -65,10 +65,10 @@ jobs:
 
       - name: CI-Build
         run: |
-          export JSONAPI_GENERATOR_EXE=/Users/runner/work/RetroShare/RetroShare/jsonapi-generator/src/jsonapi-generator
+          export JSONAPI_GENERATOR_EXE=/Users/runner/work/RetroShare/RetroShare/jsonapi-generator/src/jsonapi-generator.app/Contents/MacOS/jsonapi-generator
           # agpl v3: Christoph Johannes Kleine
           # works with bash, zsh on mac needs more testing
-          export CPATH=`xcrun --show-sdk-path`/usr/include
+          #export CPATH=`xcrun --show-sdk-path`/usr/include
           # cpath should be that after export. 
           # CPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
           # xcode-select -p
@@ -133,4 +133,4 @@ jobs:
           CONFIG+=rs_jsonapi \
           ..
           
-          make -j 4
+          make -j 1
