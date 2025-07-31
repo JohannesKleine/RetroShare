@@ -25,6 +25,8 @@ jobs:
         shell: bash
 
     steps:
+      - run: ls -la /opt/homebrew
+      - run: find /opt/homebrew
       - name: Setup XCode
         uses: maxim-lobanov/setup-xcode@v1
         with:
