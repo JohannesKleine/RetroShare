@@ -65,6 +65,7 @@ jobs:
 
       - name: CI-Build
         run: |
+          export JSONAPI_GENERATOR_EXE=/Users/runner/work/RetroShare/RetroShare/jsonapi-generator/src/jsonapi-generator
           # agpl v3: Christoph Johannes Kleine
           # works with bash, zsh on mac needs more testing
           export CPATH=`xcrun --show-sdk-path`/usr/include
@@ -93,6 +94,7 @@ jobs:
           cd jsonapi-generator/src
           qmake ../../../jsonapi-generator/src/jsonapi-generator.pro
           make -j 4 -f Makefile
+          find .
           pwd
           echo "hello pwd ***********************************************************"
           cp jsonapi-generator.app/Contents/MacOS/jsonapi-generator jsonapi-generator
