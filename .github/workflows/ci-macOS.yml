@@ -54,6 +54,7 @@ jobs:
           libxslt
           libxml2
           qt
+          json-c
       - run: ls -la /opt/homebrew
       - run: find /opt/homebrew
       - name: Checkout submodules
@@ -99,16 +100,16 @@ jobs:
           pwd
           echo "hello ***********************************************************"
           
-          time qmake \
-          INCLUDEPATH+="/usr/local/opt/botan\@2/include" QMAKE_LIBDIR+="/usr/local/opt/botan\@2/lib/" \
+          time qmake6 \
+          INCLUDEPATH+="/opt/homebrew/opt/botan@2/include" QMAKE_LIBDIR+="/opt/homebrew/opt/botan@2/lib/" \
           INCLUDEPATH+="/usr/local/Cellar/glib/2.84.2/lib/" QMAKE_LIBDIR+="/usr/local/Cellar/glib/2.84.2/lib/" \
-          INCLUDEPATH+="/usr/local/opt/json-c/include" QMAKE_LIBDIR+="/usr/local/opt/json-c/lib" \
-          INCLUDEPATH+="/usr/local/opt/miniupnpc/include" QMAKE_LIBDIR+="/usr/local/opt/miniupnpc/lib" \
-          INCLUDEPATH+="/usr/local/opt/openssl/include" QMAKE_LIBDIR+="/usr/local/opt/openssl/lib" \
-          INCLUDEPATH+="/usr/local/opt/sqlcipher/include" QMAKE_LIBDIR+="/usr/local/opt/sqlcipher/lib" \
-          INCLUDEPATH+="/usr/local/opt/rapidjson/include" QMAKE_LIBDIR+="/usr/local/opt/rapidjson/lib" \
-          INCLUDEPATH+="/usr/local/opt/libxslt/include" QMAKE_LIBDIR+="/usr/local/opt/libxslt/lib" \
-          INCLUDEPATH+="/usr/local/opt/libxml2/include" QMAKE_LIBDIR+="/usr/local/opt/libxml2/lib" \
+          INCLUDEPATH+="/opt/homebrew/opt/json-c/include" QMAKE_LIBDIR+="/opt/homebrew/opt/json-c/lib" \
+          INCLUDEPATH+="/opt/homebrew/opt/miniupnpc/include" QMAKE_LIBDIR+="/opt/homebrew/opt/miniupnpc/lib" \
+          INCLUDEPATH+="/opt/homebrew/opt/openssl@3/include" QMAKE_LIBDIR+="/opt/homebrew/opt/openssl@3/lib" \
+          INCLUDEPATH+="/opt/homebrew/opt/sqlcipher/include" QMAKE_LIBDIR+="/opt/homebrew/opt/sqlcipher/lib" \
+          INCLUDEPATH+="/opt/homebrew/opt/rapidjson/include" QMAKE_LIBDIR+="/opt/homebrew/opt/rapidjson/lib" \
+          INCLUDEPATH+="/opt/homebrew/opt/libxslt/include" QMAKE_LIBDIR+="/opt/homebrew/opt/libxslt/lib" \
+          INCLUDEPATH+="/opt/homebrew/opt/libxml2/include" QMAKE_LIBDIR+="/opt/homebrew/opt/libxml2/lib" \
           QMAKE_CC=/Library/Developer/CommandLineTools/usr/bin/clang \
           QMAKE_CXX=/Library/Developer/CommandLineTools/usr/bin/clang++ \
           QMAKE_CFLAGS+=-mmacosx-version-min=10.13 \
