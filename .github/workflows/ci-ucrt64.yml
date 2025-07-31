@@ -32,7 +32,6 @@ jobs:
     steps:
       - name: set line endings
         run: git config --global core.autocrlf input
-        uses: actions/checkout@v4
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
