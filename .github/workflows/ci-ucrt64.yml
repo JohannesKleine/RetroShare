@@ -69,6 +69,7 @@ jobs:
         run: |
           pwd
           ls
+          pwd
           ls ..
           cd build
           pwd
@@ -77,6 +78,7 @@ jobs:
         run: |
           cd build
           pwd
+          mkdir -p jsonapi-generator/src/xml
           find .
       - name: CI-Build make
         run: |
