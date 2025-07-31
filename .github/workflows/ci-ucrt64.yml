@@ -50,18 +50,18 @@ jobs:
             ruby
             doxygen
             cmake
-            mingw-w64-ucrt-${{matrix.env}}-toolchain
-            mingw-w64-ucrt-${{matrix.env}}-miniupnpc
-            mingw-w64-ucrt-${{matrix.env}}-libxslt
-            mingw-w64-ucrt-${{matrix.env}}-xapian-core
-            mingw-w64-ucrt-${{matrix.env}}-sqlcipher
-            mingw-w64-ucrt-${{matrix.env}}-qt5-base
-            mingw-w64-ucrt-${{matrix.env}}-qt5-multimedia
-            mingw-w64-ucrt-${{matrix.env}}-ccmake
-            mingw-w64-ucrt-${{matrix.env}}-rapidjson
-            mingw-w64-ucrt-${{matrix.env}}-json-c
-            mingw-w64-ucrt-${{matrix.env}}-libbotan
-            mingw-w64-ucrt-${{matrix.env}}-asio
+            mingw-w64-${{matrix.env}}-toolchain
+            mingw-w64-${{matrix.env}}-miniupnpc
+            mingw-w64-${{matrix.env}}-libxslt
+            mingw-w64-${{matrix.env}}-xapian-core
+            mingw-w64-${{matrix.env}}-sqlcipher
+            mingw-w64-${{matrix.env}}-qt5-base
+            mingw-w64-${{matrix.env}}-qt5-multimedia
+            mingw-w64-${{matrix.env}}-ccmake
+            mingw-w64-${{matrix.env}}-rapidjson
+            mingw-w64-${{matrix.env}}-json-c
+            mingw-w64-${{matrix.env}}-libbotan
+            mingw-w64-${{matrix.env}}-asio
 
       - name: Checkout submodules
         run: |
