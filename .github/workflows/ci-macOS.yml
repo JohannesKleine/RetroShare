@@ -56,7 +56,8 @@ jobs:
           libxslt
           libxml2
           qt
-
+      - run: ls -la /opt/homebrew
+      - run: find /opt/homebrew
       - name: Checkout submodules
         run: |
           env
