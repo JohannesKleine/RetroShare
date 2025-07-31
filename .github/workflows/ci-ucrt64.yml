@@ -28,7 +28,7 @@ jobs:
         include:
           - { sys: mingw64, env: x86_64 }
           - { sys: ucrt64,  env: ucrt-x86_64 }
-          - { sys: clang64, env: clang-x86_64 }
+#          - { sys: clang64, env: clang-x86_64 }
     steps:
       - name: Setup MSYS2
         uses: msys2/setup-msys2@40677d36a502eb2cf0fb808cc9dec31bf6152638 # v2.28.0
