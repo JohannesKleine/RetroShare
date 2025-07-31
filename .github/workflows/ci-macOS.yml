@@ -43,16 +43,16 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@main
 
       - name: Install Packages
-        run: brew install openssl \
-          miniupnpc \
-          rapidjson \
-          sqlcipher \
-          cmake \
-          bzip2 \
-          zlib \
-          botan@2 \
-          libxslt \
-          libxml2 \
+        run: brew install openssl
+          miniupnpc
+          rapidjson
+          sqlcipher
+          cmake
+          bzip2
+          zlib
+          botan@2
+          libxslt
+          libxml2
           qt
 
       - name: Checkout submodules
