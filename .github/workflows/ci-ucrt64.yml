@@ -26,9 +26,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - { sys: mingw64, env: ${{matrix.env}} }
-          - { sys: ucrt64,  env: ucrt-${{matrix.env}} }
-          - { sys: clang64, env: clang-${{matrix.env}} }
+          - { sys: mingw64, env: x86_64 }
+          - { sys: ucrt64,  env: ucrt-x86_64 }
+          - { sys: clang64, env: clang-x86_64 }
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
