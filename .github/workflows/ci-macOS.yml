@@ -28,7 +28,7 @@ jobs:
       - name: Setup XCode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: 16.0
+          xcode-version: 16.4
 
       - name: Show current version of Xcode
         run: xcodebuild -version
@@ -63,5 +63,69 @@ jobs:
 
       - name: CI-Build
         run: |
-          qmake6 . -r "CONFIG+=release" "CONFIG+=rs_autologin" "CONFIG+=no_rs_sam3" "CONFIG+=no_rs_sam3_libsam3" "CONFIG += rs_no_rnplib"
-          make
+          # agpl v3: Christoph Johannes Kleine
+          # works with bash, zsh on mac needs more testing
+          export CPATH=`xcrun --show-sdk-path`/usr/include
+          # cpath should be that after export. 
+          # CPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
+          # xcode-select -p
+          # /Library/Developer/CommandLineTools
+          # if xcode-select -p does not show it and you have errors:
+          # xcode-select -s /Library/Developer/CommandLineTools
+          
+          # todo: /usr/local/opt prefix stuff homebrew x86_64 and arm are different
+          # todo: set pwd var independently from where the script is called
+          echo "##########################################"
+          env
+          echo "##########################################"
+          ls /usr/local
+          echo "##########################################"
+          pwd
+          cd ../../
+          pwd
+          #rm -r build
+          mkdir build
+          cd build
+          mkdir -p jsonapi-generator/src/
+          cd jsonapi-generator/src
+          qmake ../../../jsonapi-generator/src/jsonapi-generator.pro
+          make -j 4 -f Makefile
+          pwd
+          echo "hello pwd ***********************************************************"
+          cp jsonapi-generator.app/Contents/MacOS/jsonapi-generator jsonapi-generator
+          cd ../../
+          pwd
+          echo "hello ***********************************************************"
+          
+          time /usr/local/Qt-5.15.17/bin/qmake \
+          INCLUDEPATH+="/usr/local/opt/botan\@2/include" QMAKE_LIBDIR+="/usr/local/opt/botan\@2/lib/" \
+          INCLUDEPATH+="/usr/local/Cellar/glib/2.84.2/lib/" QMAKE_LIBDIR+="/usr/local/Cellar/glib/2.84.2/lib/" \
+          INCLUDEPATH+="/usr/local/opt/json-c/include" QMAKE_LIBDIR+="/usr/local/opt/json-c/lib" \
+          INCLUDEPATH+="/usr/local/opt/miniupnpc/include" QMAKE_LIBDIR+="/usr/local/opt/miniupnpc/lib" \
+          INCLUDEPATH+="/usr/local/opt/openssl/include" QMAKE_LIBDIR+="/usr/local/opt/openssl/lib" \
+          INCLUDEPATH+="/usr/local/opt/sqlcipher/include" QMAKE_LIBDIR+="/usr/local/opt/sqlcipher/lib" \
+          INCLUDEPATH+="/usr/local/opt/rapidjson/include" QMAKE_LIBDIR+="/usr/local/opt/rapidjson/lib" \
+          INCLUDEPATH+="/usr/local/opt/libxslt/include" QMAKE_LIBDIR+="/usr/local/opt/libxslt/lib" \
+          INCLUDEPATH+="/usr/local/opt/libxml2/include" QMAKE_LIBDIR+="/usr/local/opt/libxml2/lib" \
+          QMAKE_CC=/Library/Developer/CommandLineTools/usr/bin/clang \
+          QMAKE_CXX=/Library/Developer/CommandLineTools/usr/bin/clang++ \
+          QMAKE_CFLAGS+=-mmacosx-version-min=10.13 \
+          QMAKE_CFLAGS+=-Wno-nullability-completeness \
+          QMAKE_LFLAGS+=-v \
+          QMAKE_CXXFLAGS+=-mmacosx-version-min=10.13 \
+          CONFIG+=rs_autologin \
+          CONFIG+=rs_use_native_dialogs \
+          CONFIG+=release \
+          CONFIG+=rs_macos15.5 \
+          CONFIG+=c++14 \
+          CONFIG+=wikipoos \
+          CONFIG+=gxsthewire \
+          CONFIG+=no_retroshare_friendserver \
+          CONFIG+=retroshare_plugins \
+          CONFIG+=rs_async_chat \
+          CONFIG+=gxsdistsync \
+          CONFIG+=rs_webui \
+          CONFIG+=rs_jsonapi \
+          ..
+          
+          make -j 4
