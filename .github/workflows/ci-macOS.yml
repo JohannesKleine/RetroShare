@@ -77,11 +77,12 @@ jobs:
           # todo: set pwd var independently from where the script is called
           echo "##########################################"
           env
-          echo "##########################################"
-          ls /usr/local
+          echo "ls /usr/local and opt ##########################################"
+          ls -la /usr/local
+          ls -la /opt
           echo "##########################################"
           pwd
-          cd ../../
+          # cd ../../ #yes not needed
           pwd
           #rm -r build
           mkdir build
