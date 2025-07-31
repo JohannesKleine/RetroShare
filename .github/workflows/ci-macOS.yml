@@ -55,6 +55,7 @@ jobs:
           libxml2
           qt
           json-c
+          asio
       - run: ls -la /opt/homebrew
       - run: find /opt/homebrew
       - name: Checkout submodules
