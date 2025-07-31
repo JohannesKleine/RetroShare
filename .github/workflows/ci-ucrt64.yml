@@ -67,9 +67,19 @@ jobs:
         run: mkdir build && cd build && pwd
       - name: CI-Build qmake
         run: |
+          pwd
+          ls
+          ls ..
+          cd build
+          pwd
           qmake .. -r -spec win32-g++ "CONFIG+=release" "CONFIG+=rs_jsonapi" "CONFIG+=rs_webui" "CONFIG+=rs_autologin" "CONFIG+=no_rs_sam3" "CONFIG+=no_rs_sam3_libsam3"
       - name: list content of build directory
-        run: find .
+        run: |
+          cd build
+          pwd
+          find .
       - name: CI-Build make
         run: |
+          cd build
+          pwd
           mingw32-make --jobs=1
