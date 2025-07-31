@@ -30,16 +30,21 @@ jobs:
           - { sys: ucrt64,  env: ucrt-x86_64 }
           - { sys: clang64, env: clang-x86_64 }
     steps:
+      - name: set line endings
+        run: git config --global core.autocrlf input
+        uses: actions/checkout@v4
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-tags: true
 
       - name: Setup MSYS2
         uses: msys2/setup-msys2@40677d36a502eb2cf0fb808cc9dec31bf6152638 # v2.28.0
         with:
           msystem: ${{matrix.sys}}
           update: true
+          release: false # use preinstalled msys2
           install: >-
             base-devel
             git
