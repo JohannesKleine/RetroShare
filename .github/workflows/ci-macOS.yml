@@ -50,7 +50,7 @@ jobs:
           cmake
           bzip2
           zlib
-          botan@2
+          botan@3
           libxslt
           libxml2
           qt
@@ -105,7 +105,7 @@ jobs:
           echo "hello ***********************************************************"
           
           time qmake6 \
-          INCLUDEPATH+="/opt/homebrew/opt/botan@2/include" QMAKE_LIBDIR+="/opt/homebrew/opt/botan@2/lib/" \
+          INCLUDEPATH+="/opt/homebrew/opt/botan@3/include" QMAKE_LIBDIR+="/opt/homebrew/opt/botan@3/lib/" \
           INCLUDEPATH+="/usr/local/Cellar/glib/2.84.2/lib/" QMAKE_LIBDIR+="/usr/local/Cellar/glib/2.84.2/lib/" \
           INCLUDEPATH+="/opt/homebrew/opt/json-c/include" QMAKE_LIBDIR+="/opt/homebrew/opt/json-c/lib" \
           INCLUDEPATH+="/opt/homebrew/opt/miniupnpc/include" QMAKE_LIBDIR+="/opt/homebrew/opt/miniupnpc/lib" \
