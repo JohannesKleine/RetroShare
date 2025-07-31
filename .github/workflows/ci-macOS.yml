@@ -62,8 +62,8 @@ jobs:
       - name: Checkout submodules
         run: |
           env
-          git submodule update --init --remote libbitdht/ libretroshare/ retroshare-webui/ supportlibs/librnp
-          git submodule update --init supportlibs/rapidjson supportlibs/restbed
+          git submodule update --init --remote libbitdht/ libretroshare/ retroshare-webui/ supportlibs/librnp supportlibs/rapidjson
+          git submodule update --init supportlibs/restbed
 
       - name: CI-Build
         run: |
