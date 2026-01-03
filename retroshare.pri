@@ -185,7 +185,7 @@ rs_use_native_dialogs:CONFIG -= no_rs_use_native_dialogs
 # default to openpgp-sdk, which is old and unmaintained, so probably not very secure.
 CONFIG *= rs_rnplib
 rs_no_rnplib:CONFIG -= rs_rnplib
-rs_no_rnplib:CONFIG += rs_openpgpsdk
+#rs_no_rnplib:CONFIG *= wikipoos rs_openpgpsdk
 
 # To disable broadcast discovery append the following assignation to qmake
 # command line "CONFIG+=no_rs_broadcast_discovery"
@@ -226,6 +226,10 @@ no_rs_sam3:CONFIG -= rs_sam3
 CONFIG *= rs_sam3_libsam3
 no_rs_sam3_libsam3:CONFIG -= rs_sam3_libsam3
 
+
+
+#Wikipoos
+#CONFIG *= wikipoos
 
 # Specify host precompiled jsonapi-generator path, appending the following
 # assignation to qmake command line
@@ -334,7 +338,7 @@ DEFINES += V07_NON_BACKWARD_COMPATIBLE_CHANGE_001
 DEFINES += V07_NON_BACKWARD_COMPATIBLE_CHANGE_002
 DEFINES += V07_NON_BACKWARD_COMPATIBLE_CHANGE_003
 
-#CONFIG += rs_v07_changes
+#CONFIG *= wikipoos rs_v07_changes
 rs_v07_changes {
     DEFINES += V07_NON_BACKWARD_COMPATIBLE_CHANGE_001
     DEFINES += V07_NON_BACKWARD_COMPATIBLE_CHANGE_002
@@ -532,7 +536,7 @@ versionAtLeast(CMAKE_VERSION, 3.5) {
 }
 
 gxsdistsync:DEFINES *= RS_USE_GXS_DISTANT_SYNC
-wikipoos:DEFINES *= RS_USE_WIKI
+#wikipoos:DEFINES *= RS_USE_WIKI
 rs_gxs:DEFINES *= RS_ENABLE_GXS
 rs_gxs_send_all:DEFINES *= RS_GXS_SEND_ALL
 rs_service_webui_terminal_password:DEFINES *= RS_SERVICE_TERMINAL_WEBUI_PASSWORD
