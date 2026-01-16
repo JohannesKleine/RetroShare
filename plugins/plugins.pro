@@ -29,4 +29,4 @@ SUBDIRS += \
 		PaintChat \
 		RetroChess \
 #		SyncFriends \
-#		VOIP \
+		VOIP \
